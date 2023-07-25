@@ -1,0 +1,10 @@
+{
+  "doctor_id": 34,
+  "user_id": 166,
+  "slot_id": 3,
+  "transactionId": "1",
+  "amount": "200",
+  "payment_date": "2023-06-21",
+  "appointment_date": "2023-06-21"
+
+}

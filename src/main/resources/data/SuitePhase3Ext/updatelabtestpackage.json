@@ -1,0 +1,12 @@
+{
+  "id": "4",
+  "package_name": "GENERAL HEALTH CHECK-BASIC",
+  "labtest_category_id": 3,
+  "description": "descs",
+  "package_cost": 1700,
+  "status" : true,
+  "labTest_details": [
+
+    {             "labtest_id": 5         }
+  ]
+}

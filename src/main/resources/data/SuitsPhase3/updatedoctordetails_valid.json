@@ -1,0 +1,13 @@
+{
+  "name": "Dr.Python",
+  "phone_no": "9630258963",
+  "profile_image": "",
+  "address": "DR.hospital",
+  "qualification": "MD MS",
+  "date_of_birth": "01/01/1900",
+  "experience": "1",
+  "consultation_fee": "2000",
+  "about_doctor": "veriy good in operation",
+  "email": "updatedoctor@gmail.com",
+  "status": "working"
+}
