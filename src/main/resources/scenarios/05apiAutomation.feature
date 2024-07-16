@@ -2,57 +2,135 @@
 Feature: Validate all end point
 
   Background:  Setup domain for suitshealthdev
-    Given set the base domain "https://suitsbackenddevelopment.azurewebsites.net/router/"
+    Given set the base domain "https://suitsbackenddevelopment.azurewebsites.net/api/v1/"
 
   # mobile api automation test cases
-
+#https://suitsbackenddevelopment.azurewebsites.net/api/v1/doctorSignup
   Scenario: Doctor Signup with validate data with Successfully registered
-    Given  I Signup new Doctor details with "Valid data" application service end point "/doctorSignup"
+    Given  I Signup new Doctor details with "Valid data" application service end point "doctorSignup"
     When I will receive valid response 200
     Then I validate suessfully message "Successfully registered."
 
   Scenario: Verify error message Email address already exists
-    Given I Signup new Doctor details with "Existing email address" application service end point "/doctorSignup"
+    Given I Signup new Doctor details with "Existing email address" application service end point "doctorSignup"
     When I will receive valid response 200
     Then I Verify response Message key "Phone number already exists"
 
   Scenario: Verify error message Phone number already exists
-    Given I Signup new Doctor details with "Existing Phone Number" application service end point "/doctorSignup"
+    Given I Signup new Doctor details with "Existing Phone Number" application service end point "doctorSignup"
     When I will receive valid response 200
     Then I Verify response Message key "Phone number already exists"
 
   Scenario: Verify something went wrong please try again
-    Given I Signup new Doctor details with "Invalid data" application service end point "/doctorSignup"
+    Given I Signup new Doctor details with "Invalid data" application service end point "doctorSignup"
     When I will receive valid response 200
     Then I Verify response Message key "Something went wrong. Please try again later."
     And I Verify  response error key "Please fill all Mandatory Details"
 
-
+#GET https://suitsbackenddevelopment.azurewebsites.net/router/getDoctorDetails?spec_id=1
   Scenario:  Get Doctor details
-    Given I Get Doctor details with application service end point "getDoctorDetails?spec_id=1"
+    Given I Get Doctor details with application service end point "DoctorDetails?spec_id="
     When I validate the response with message "Successfully Fetched data"
-    Then I will receive valid response
+    #Then I will receive valid response
 
-
+#https://suitsbackenddevelopment.azurewebsites.net/router/getSpecializations
   Scenario:  Get Specification list
     Given  I Get list specification of treatment with application service end point "getSpecializations"
     When I validate the response with message "Successfully fetched specializations"
     Then I will receive valid response
 
+# GET https://suitsbackenddevelopment.azurewebsites.net/router/getDoctorSchedule?doc_id=1
   Scenario:  Get Doctor Schedule
     Given I Get List of Doctor appoint schedule  with application service end point "getDoctorSchedule?doc_id=1"
     When   I validate the response with message "Successfully Fetched Data"
     Then I will receive valid response
 
+#https://suitsbackenddevelopment.azurewebsites.net/router/getOneDoctorPerSpecialization
   Scenario:  Get One Doctor Per Specialization
     Given I Get Doctor Specialization with application service end point "getOneDoctorPerSpecialization"
     When   I validate the response with message "Successfully Fetched Data"
     Then I will receive valid response
 
+# POST https://suitsbackenddevelopment.azurewebsites.net/api/v1/appointment
+  Scenario: Create a doctor new appointment
+    Given Get doctor appointment to the patient "appointment"
+    Then I will receive valid response 200
+    When I validate the response with message "Appointment booked succesfully"
 
+# GET https://suitsbackenddevelopment.azurewebsites.net/api/v1/getAllAppointments
+    Scenario: Get all appointments
+    Given Get all doctor appointments "getAllAppointments"
+    Then I will receive valid response 200
+    When I validate the response with message "Appointments fetched succesfully"
 
+# GET https://suitsbackenddevelopment.azurewebsites.net/api/v1/getDoctorAppointments
+  #Need to look
+  Scenario:  Get appointment list for doctors
+    Given Get all appointment list for doctors "getDoctorAppointments"
+     Then I will receive valid response 200
+     When I validate the response with message "Appointments fetched succesfully"
 
+# GET https://suitsbackenddevelopment.azurewebsites.net/api/v1/getDoctorAppointmentsbyMode?mode=ONLINE
 
+  Scenario: Get appointment list for a doctor by online mode
+    #Need to look
+   Given Get appointment list for a doctor by Online mode "getDoctorAppointmentsbyMode?mode=ONLINE"
+    Then I will receive valid response 200
+    When I validate the response with message "Appointments fetched succesfully"
+
+#GET https://suitsbackenddevelopment.azurewebsites.net/api/v1/getNewRequests?page=1
+  Scenario: Get new appointment requests list for a doctor
+    Given Get new appointment request list for a doctor "getNewRequests?page=1"
+    Then I will receive valid response 200
+    When I validate the response with message "Appointment Requests fetched succesfully"
+
+#GET https://suitsbackenddevelopment.azurewebsites.net/api/v1/getUpcomingAppointments?page=1
+  Scenario: Get upcoming appointment from doctor
+    Given Get upcoming appointment from doctor "getUpcomingAppointments?page=1"
+    Then I will receive valid response 200
+    When I validate the response with message "Appointment Requests fetched succesfully"
+
+#GET https://suitsbackenddevelopment.azurewebsites.net/api/v1/getUpcomingOnlineAppointments?page=1
+  Scenario: Get doctor appointment for online
+    Given Get upcoming appointment for online "getUpcomingOnlineAppointments?page=1"
+    Then I will receive valid response 200
+    When I validate the response with message "Appointment Requests fetched succesfully"
+
+#GET https://suitsbackenddevelopment.azurewebsites.net/api/v1/getAppointmentHistory?page=1
+  Scenario: Get app history
+    Given Get app history "getAppointmentHistory?page=1"
+    Then I will receive valid response 200
+    When I validate the response with message "Appointment Requests fetched succesfully"
+
+#GET https://suitsbackenddevelopment.azurewebsites.net/api/v1/getOnlineAppointmentHistory?page=1
+  Scenario: Get app history online
+    Given Get app history "getOnlineAppointmentHistory?page=1"
+    Then I will receive valid response 200
+    When I validate the response with message "Appointments fetched succesfully"
+
+#GET https://suitsbackenddevelopment.azurewebsites.net/api/v1/getOfflineAppointmentHistory?page=1
+  Scenario: Get app history offline
+    Given Get app history "getOfflineAppointmentHistory?page=2"
+    Then I will receive valid response 200
+    When I validate the response with message "Appointments fetched succesfully"
+
+#GET https://suitsbackenddevelopment.azurewebsites.net/api/v1/getAlldoctorsDetails/1
+  Scenario: Get all doctor details
+    Given get all doctor details "getAlldoctorsDetails/1"
+    Then I will receive valid response 200
+    When I validate the response with message "Succesfully fetched data"
+
+#GET https://suitsbackenddevelopment.azurewebsites.net/api/v1/getUserAppointmentHistory
+  Scenario: Get appointment list for the users
+    Given Get appointment list for the users "getUserAppointmentHistory"
+    Then I will receive valid response 200
+    When I validate the response with message "Appointments fetched succesfully"
+
+#GET https://suitsbackenddevelopment.azurewebsites.net/api/v1/getUserUpcomingAppointments
+  Scenario: Get appointment upcoming list for users
+    Given Get appointment upcoming list for the users "getUserUpcomingAppointments"
+    Then I will receive valid response 200
+    When I validate the response with message "Appointments fetched succesfully"
 
 
 

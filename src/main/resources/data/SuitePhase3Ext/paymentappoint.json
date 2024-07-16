@@ -1,1 +1,8 @@
-{"amount":"5000","payment_status":"Failure","appointment_id":9,"payment_method":"UPI","transactionId":"612","payment_date":"2023-06-14"}
+{
+  "amount": "5000",
+  "payment_status": "Failure",
+  "appointment_id": 9,
+  "payment_method": "UPI",
+  "transactionId": "612",
+  "payment_date": "2023-06-14"
+}
