@@ -1,0 +1,4 @@
+[11.07.2023] [18:58:45] INFO [main] org.apache.http.impl.client.DefaultHttpClient (DefaultRequestDirector.java:618) - I/O exception (java.net.SocketException) caught when connecting to {s}->https://suitsbackenddevelopment.azurewebsites.net:443: Connection reset
+[11.07.2023] [18:58:45] INFO [main] org.apache.http.impl.client.DefaultHttpClient (DefaultRequestDirector.java:626) - Retrying connect to {s}->https://suitsbackenddevelopment.azurewebsites.net:443
+[11.07.2023] [19:04:19] INFO [main] org.apache.http.impl.client.DefaultHttpClient (DefaultRequestDirector.java:618) - I/O exception (java.net.SocketException) caught when connecting to {s}->https://suitsbackenddevelopment.azurewebsites.net:443: Software caused connection abort: recv failed
+[11.07.2023] [19:04:19] INFO [main] org.apache.http.impl.client.DefaultHttpClient (DefaultRequestDirector.java:626) - Retrying connect to {s}->https://suitsbackenddevelopment.azurewebsites.net:443

@@ -1,0 +1,12 @@
+{
+  "title": "title",
+  "id": 26,
+  "min_purchase": 1000,
+  "max_discount": 100,
+  "discount": 1000,
+  "discount_type": "Amount",
+  "coupon_type_id": 2,
+  "user_limit": 3,
+  "start_date": "2023-06-23",
+  "expire_date": "2023-07-30"
+}
